@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+
+    <title>Calculator</title>
+  </head>
+
+  <body>
+    <label>Square this number:
+      <input type="number" id="square-input" size="2">
+    </label>
+  
+    <button id="square-button">Calculate</button><br><br>
+  
+    <label>Half this number:
+      <input type="number" id="half-input" size="2">
+    </label>
+  
+    <button id="half-button">Calculate</button><br><br>
+  
+    <label>Fraction:
+      <input type="number" id="percent1-input" size="2">
+    </label>
+  
+    <label>Whole:
+      <input type="number" id="percent2-input" size="2">
+    </label>
+  
+    <button id="percent-button">Calculate</button><br><br>
+  
+    <label>Calculate area of circle with radius:
+      <input type="number" id="area-input" size="2">
+    </label>
+  
+    <button id="area-button">Calculate</button> <br><br>
+  
+    <div id="solution"></div>
+
+    <script>
+      let squareBut = document.getElementById("square-button");
+      let halfBut = document.getElementById("half-button");
+      let percentBut = document.getElementById("percent-button");
+      let areaBut = document.getElementById("area-button");
+      let divSol = document.getElementById("solution");
+
+      // -----------------
+      // Funções de evento
+
+      function showSquare() {
+        let inp = document.getElementById("square-input");
+
+        divSol.innerText = squareNumber(inp.value);
+      }
+
+      function showHalf() {
+        let inp = document.getElementById("half-input");
+
+        divSol.innerText = halfNumber(inp.value);
+      }
+
+      function showPercent() {
+        let inp1 = document.getElementById("percent1-input");
+        let inp2 = document.getElementById("percent2-input");
+
+        divSol.innerText = percentOf(inp1.value, inp2.value) + "%";
+      }
+
+      function showArea() {
+        let inp = document.getElementById("area-input");
+
+        divSol.innerText = areaOfCircle(inp.value);
+      }
+      
+      // Fim funções de evento
+      // ---------------------
+
+      squareBut.addEventListener("click", showSquare);
+      halfBut.addEventListener("click", showHalf);
+      percentBut.addEventListener("click", showPercent);
+      areaBut.addEventListener("click", showArea);
+
+      // ---------------
+      // Funções cálculo
+
+      function squareNumber(number) {
+        let square = number * number;
+        console.log("O resultado do quadrado do número " + number + " é " + square + ".");
+
+        return square;
+      }
+
+      function halfNumber(number) {
+        let half = number / 2;
+        console.log("Metade de " + number + " é " + half + ".");
+
+        return half;
+      }
+
+      function percentOf(number, number2) {
+        let percent = (number / number2) * 100;
+        console.log(number + " é " + percent + "% de " + number2 + ".");
+
+        return percent;
+      }
+
+      function areaOfCircle(radius) {
+        let pi = 3.14;
+        let area = pi * (radius * radius);
+        console.log("A área de um círculo com raio " + radius + " é " + area.toFixed(2) + "."); 
+
+        return area;
+      }
+
+      function calculation(number) {
+        let half = halfNumber(number);
+        let square = squareNumber(half);
+        let area = areaOfCircle(square);
+        let percent = percentOf(square, area);
+      }
+
+      // Fim funções cálculo
+      // -------------------
+    </script>
+</body>
+</html>
