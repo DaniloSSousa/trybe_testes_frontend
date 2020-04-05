@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(158 , 218 , 245);
+}
+
+.config-options {
+  margin: 10px;
+  clear: both;
+}
+
+.boxes {
+  margin-bottom: 40px;
+}
+
+.bg-boxes {
+  margin-bottom: 40px;
+}
+
+.box-color {
+  width: 18px;
+  height: 18px;
+  border: 1px solid black;
+}
+
+.black {
+  background-color: black;
+}
+
+.grey {
+  background-color: grey;
+}
+
+.white {
+  background-color: white;
+}
+
+.boxes ul li {
+  float: left;
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.bg-boxes ul li {
+  float: left;
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+#content {
+  border: 1px solid black;
+  padding-top: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+}

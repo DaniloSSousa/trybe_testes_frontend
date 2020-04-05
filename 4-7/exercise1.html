@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Dev News</title>
+  </head>
+
+  <body>
+    <p class="config-options"><strong>Cor de fundo da tela:</strong></p>
+    
+    <div class="bg-boxes">
+      <ul>
+        <li><div class="box-color black"><p></p></div>
+        <li><div class="box-color grey"><p></p></div>
+        <li><div class="box-color white"><p></p></div>
+      </ul>
+    </div>
+
+    <p class="config-options"><strong>Cor do texto:</strong></p>
+
+    <div class="boxes">
+      <ul>
+        <li><div class="box-color black"><p></p></div>
+        <li><div class="box-color grey"><p></p></div>
+        <li><div class="box-color white"><p></p></div>
+      </ul>
+    </div>
+
+    <p class="config-options"><strong>Tamanho da fonte:</strong></p>
+
+    <div class="boxes">
+      <ul>
+        <li><p id="small">Small</p>
+        <li><p id="medium">Medium</p>
+        <li><p id="large">Large</p>
+      </ul>
+    </div>
+
+    <p class="config-options"><strong>Espaçameto entre as linhas do texto:</strong></p>
+
+    <div class="boxes">
+      <ul>
+        <li><p id="normal">Normal</p>
+        <li><p id="vinte-px">20px</p>
+        <li><p id="cem-percent">100%</p>
+      </ul>
+    </div>
+
+    <p class="config-options"><strong>Tipo da fonte:</strong></p>
+
+    <div class="boxes">
+      <ul>
+        <li><p id="serif">Serif</p>
+        <li><p id="sans-serif">Sans-serif</p>
+      </ul>
+    </div>
+
+    <div id="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae quam nibh. Sed efficitur sem orci, vel porttitor 
+      leo ultrices sit amet. Donec pulvinar rhoncus laoreet. Cras vitae lacinia magna. Nulla pulvinar, justo eu pharetra 
+      mollis, ante sem tempor massa, quis pharetra sem orci et turpis. Sed pulvinar metus dolor, et pharetra massa fringilla 
+      vitae. Donec luctus, erat ut facilisis imperdiet, ligula nisi rhoncus mi, at egestas nibh dolor et justo. Nulla viverra 
+      dictum dui non egestas.</p>
+
+      <p>Curabitur eleifend pretium nulla, at aliquam purus. Nullam tincidunt magna arcu, non maximus turpis efficitur eget. Donec 
+      ac lobortis neque. Ut pellentesque eu orci a vestibulum. In feugiat finibus eros vitae fringilla. In sagittis vitae dui ut 
+      sagittis. Nulla scelerisque lectus in metus dapibus, sit amet pretium nulla ullamcorper.</p>
+
+      <p>Suspendisse quis quam a erat mollis cursus. Curabitur leo magna, varius nec egestas non, elementum id tellus. Mauris 
+      posuere enim nulla, in lobortis nisi posuere eu. Aliquam et vulputate purus, nec viverra enim. Phasellus fermentum molestie 
+      nisi at vehicula. Etiam tristique sit amet lacus at vehicula. In dapibus leo vitae cursus efficitur. Nulla tristique laoreet 
+      nulla at eleifend. Integer sed pharetra nulla. Sed sem arcu, tincidunt in velit a, aliquet interdum mauris. In at suscipit 
+      arcu, et maximus neque. Sed lacinia ante libero, in scelerisque tortor varius eget. Fusce ut fringilla ligula, eget mattis 
+      nisl. Suspendisse rutrum ligula ac egestas aliquet. In hac habitasse platea dictumst.</p>
+    </div>
+
+    <script>
+      window.onload = function () {
+        let key;
+        let content = document.querySelector("#content");
+        let divBgBlack = document.querySelector(".bg-boxes .black");
+        let divBgGrey = document.querySelector(".bg-boxes .grey");
+        let divBgWhite = document.querySelector(".bg-boxes .white");
+        let divTxtBlack = document.querySelector(".boxes .black");
+        let divTxtGrey = document.querySelector(".boxes .grey");
+        let divTxtWhite = document.querySelector(".boxes .white");
+        let pTxtSmall = document.querySelector(".boxes #small");
+        let pTxtMedium = document.querySelector(".boxes #medium");
+        let pTxtLarge = document.querySelector(".boxes #large");
+        let pLnNormal = document.querySelector(".boxes #normal");
+        let pLn20 = document.querySelector(".boxes #vinte-px");
+        let pLn100Pc = document.querySelector(".boxes #cem-percent");
+        let pFontSerif = document.querySelector(".boxes #serif");
+        let pFontSansSerif = document.querySelector(".boxes #sans-serif");
+        
+        // ---------------------------
+        // Verificação de dados locais
+
+        for (key in localStorage) {
+          switch (key) {
+            case "bgColor":
+              content.style.backgroundColor = localStorage[key];
+              break;
+            case "txtColor":
+              content.style.color = localStorage[key];
+              break;
+            case "txtSize":
+              content.style.fontSize = localStorage[key];
+              break;
+            case "lnHeight":
+              content.style.lineHeight = localStorage[key];
+              break;
+            case "fontFam":
+              content.style.fontFamily = localStorage[key];
+              break;
+          }
+        };
+
+        // ----------------
+        // Background color
+
+        function changeBgBlack(e) {
+          if (e.target.className.endsWith("black")) {
+            content.style.backgroundColor = "black";
+            localStorage.setItem("bgColor", "black");
+          }
+        };
+
+        function changeBgGrey(e) {
+          if (e.target.className.endsWith("grey")) {
+            content.style.backgroundColor = "grey";
+            localStorage.setItem("bgColor", "grey");
+          }
+        };
+
+        function changeBgWhite(e) {
+          if (e.target.className.endsWith("white")) {
+            content.style.backgroundColor = "white";
+            localStorage.setItem("bgColor", "white");
+          }
+        };
+
+        // ----------
+        // Text color
+
+        function changeTxtBlack(e) {
+          if (e.target.className.endsWith("black")) {
+            content.style.color = "black";
+            localStorage.setItem("txtColor", "black");
+          }
+        };
+
+        function changeTxtGrey(e) {
+          if (e.target.className.endsWith("grey")) {
+            content.style.color = "grey";
+            localStorage.setItem("txtColor", "grey");
+          }
+        };
+
+        function changeTxtWhite(e) {
+          if (e.target.className.endsWith("white")) {
+            content.style.color = "white";
+            localStorage.setItem("txtColor", "white");
+          }
+        };
+
+        // ---------
+        // Font size
+
+        function changeTxtSmall(e) {
+          if (e.target.id === "small") {
+            content.style.fontSize = e.target.id;
+            localStorage.setItem("txtSize", e.target.id);
+          }
+        };
+
+        function changeTxtMedium(e) {
+          if (e.target.id === "medium") {
+            content.style.fontSize = e.target.id;
+            localStorage.setItem("txtSize", e.target.id);
+          }
+        };
+
+        function changeTxtLarge(e) {
+          if (e.target.id === "large") {
+            content.style.fontSize = e.target.id;
+            localStorage.setItem("txtSize", e.target.id);
+          }
+        };
+
+        // -----------
+        // Line height
+
+        function changeLnNormal(e) {
+          if (e.target.id === "normal") {
+            content.style.lineHeight = e.target.id;
+            localStorage.setItem("lnHeight", e.target.id);
+          }
+        };
+
+        function changeLn20Px(e) {
+          if (e.target.id === "vinte-px") {
+            content.style.lineHeight = "20px";
+            localStorage.setItem("lnHeight", "20px");
+          }
+        };
+
+        function changeLn100Pc(e) {
+          if (e.target.id === "cem-percent") {
+            content.style.lineHeight = "100%";
+            localStorage.setItem("lnHeight", "100%");
+          }
+        };
+
+        // -----------
+        // Font family
+
+        function changeFontSerif(e) {
+          if (e.target.id === "serif") {
+            content.style.fontFamily = e.target.id;
+            localStorage.setItem("fontFam", e.target.id);
+          }
+        };
+
+        function changeFontSansSerif(e) {
+          if (e.target.id === "sans-serif") {
+            content.style.fontFamily = e.target.id;
+            localStorage.setItem("fontFam", e.target.id);
+          }
+        };
+        
+        divBgBlack.addEventListener("click", changeBgBlack);
+        divBgGrey.addEventListener("click", changeBgGrey);
+        divBgWhite.addEventListener("click", changeBgWhite);
+        divTxtBlack.addEventListener("click", changeTxtBlack);
+        divTxtGrey.addEventListener("click", changeTxtGrey);
+        divTxtWhite.addEventListener("click", changeTxtWhite);
+        pTxtSmall.addEventListener("click", changeTxtSmall);
+        pTxtMedium.addEventListener("click", changeTxtMedium);
+        pTxtLarge.addEventListener("click", changeTxtLarge);
+        pLnNormal.addEventListener("click", changeLnNormal);
+        pLn20.addEventListener("click", changeLn20Px);
+        pLn100Pc.addEventListener("click", changeLn100Pc);
+        pFontSerif.addEventListener("click", changeFontSerif);
+        pFontSansSerif.addEventListener("click", changeFontSansSerif);
+      };
+    </script>
+  </body>
+</html> 
