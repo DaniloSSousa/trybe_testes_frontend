@@ -15,11 +15,9 @@ const assert = require('assert');
 const greetPeople = (people) => {
   let greeting = [];
   let greet = 'Hello ';
-
   for (const person in people) {
     greeting.push(`${greet}${people[person]}`);
   }
-
   return greeting;
 };
 // ---
