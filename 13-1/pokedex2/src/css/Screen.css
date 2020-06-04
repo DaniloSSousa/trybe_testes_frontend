@@ -1,0 +1,11 @@
+.screen {
+  /* align-content: center; */
+  background-color: rgb(191, 207, 236);
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  height: 255px;
+  margin: 0;
+}
